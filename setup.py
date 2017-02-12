@@ -8,7 +8,7 @@ setup(
     version="0.1a.0",
     packages=find_packages(),
 
-    install_requires=["distribute"],
+    install_requires=["distribute==0.7.3"],
 
     author="Woody Ai",
     author_email="aiqi@xmind.net",
