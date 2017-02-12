@@ -22,7 +22,7 @@ class WorkbookMixinElement(Element):
     """
     """
     def __init__(self, node=None, ownerWorkbook=None):
-        super(WorkbookMixinElement, self).__init__(node)
+        super(WorkbookMixinElement, self).__init__(node, ownerWorkbook)
         self._owner_workbook = ownerWorkbook
         self.registOwnerWorkbook()
 
@@ -43,7 +43,7 @@ class WorkbookMixinElement(Element):
             return utils.readable_time(timestamp)
 
     def setModifiedTime(self, time):
-        self.setAttribute(const.ATTR_TIMESTAMP, long(time))
+        self.setAttribute(const.ATTR_TIMESTAMP, int(time))
 
     def updateModifiedTime(self):
         self.setModifiedTime(utils.get_current_time())

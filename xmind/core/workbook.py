@@ -70,10 +70,13 @@ class WorkbookElement(WorkbookMixinElement):
 
     def addSheet(self, sheet, index=None):
         sheets = self.getSheets()
-        if index < 0 or index >= len(sheets):
+        if index == None:
             self.appendChild(sheet)
         else:
-            self.insertBefore(sheet, sheets[index])
+            if index < 0 or index >= len(sheets):
+                self.appendChild(sheet)
+            else:
+                self.insertBefore(sheet, sheets[index])
 
         self.updateModifiedTime()
 
