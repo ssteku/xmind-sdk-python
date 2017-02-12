@@ -139,8 +139,8 @@ class WorkbookDocument(Document):
             const.TAG_WORKBOOK)
 
         self._workbook_element = WorkbookElement(
-            _workbook_element,
-            self)
+            node=_workbook_element,
+            ownerWorkbook=self)
 
         if not _workbook_element:
             self.appendChild(self._workbook_element)

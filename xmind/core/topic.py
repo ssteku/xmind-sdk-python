@@ -335,7 +335,7 @@ class TopicElement(WorkbookMixinElement):
         notes = self.getNotes()
 
         if notes is None:
-            notes = NotesElement(ownerTopic=self)
+            notes = NotesElement(node=None, ownerTopic=self._owner_workbook)
             self.appendChild(notes)
 
         return notes
@@ -347,7 +347,7 @@ class TopicElement(WorkbookMixinElement):
 
         """
         notes = self._set_notes()
-        new = PlainNotes(content, None, self)
+        new = PlainNotes(content, None, self._owner_workbook)
 
         old = notes.getFirstChildNodeByTagName(new.getFormat())
         if old is not None:

@@ -200,15 +200,18 @@ class Element(Node):
     def __init__(self, node=None,  ownerWorkbook=None):
         # FIXME: Should really call the base class
         #super(Element, self).__init__()
-        element = ownerWorkbook.createElement(self.TAG_NAME)
-        self._node = node or element
-        return element
+        if node is None:
+            element = ownerWorkbook.createElement(self.TAG_NAME)
+            self._node =  element
+        else:
+            self._node = node
 
     def getOwnerDocument(self):
         return self._node.ownerDocument
 
     def setOwnerDocument(self, doc_imple):
-        self._node.ownerDocument = doc_imple
+        if self._node is not None:
+            self._node.ownerDocument = doc_imple
 
     def setAttributeNS(self, namespace, attr):
         """
