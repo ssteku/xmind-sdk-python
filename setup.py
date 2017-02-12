@@ -8,8 +8,6 @@ setup(
     version="0.1a.0",
     packages=find_packages(),
 
-    install_requires=["distribute"],
-
     author="Woody Ai",
     author_email="aiqi@xmind.net",
     description="The offical XMind python SDK",
