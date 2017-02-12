@@ -54,7 +54,7 @@ class WorkbookMixinElement(Element):
 
 class TopicMixinElement(Element):
     def __init__(self, node, ownerTopic):
-        super(TopicMixinElement, self).__init__(node)
+        super(TopicMixinElement, self).__init__(node, ownerTopic)
         self._owner_topic = ownerTopic
 
     def getOwnerTopic(self):
